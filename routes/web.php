@@ -14,6 +14,7 @@ Route::get('/gallery', [GuestController::class, 'gallery_page'])->name('guest.ga
 Route::get('/product', [GuestController::class, 'product_page'])->name('guest.product');
 Route::get('/treatment', [GuestController::class, 'treatment_page'])->name('guest.treatment');
 Route::post('/contact', [GuestController::class, 'storecontact'])->name('store.contact');
+Route::get('/treatment/{name}', [GuestController::class, 'treatment_detail'])->name('guest.treatmentdetails');
 Route::get('/blog/{name}', [GuestController::class, 'blog_detail'])->name('guest.blog');
 
 Route::group(['middleware' => 'guest'], function () {

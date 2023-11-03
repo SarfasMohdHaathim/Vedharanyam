@@ -46,7 +46,6 @@ h1{
     font-size: 64px;
     line-height: 82px;
     font-weight: 700;
-    color: var(--e-global-color-white);
 }
 h2{
     font-family: 'Playfair Display', serif;
@@ -238,7 +237,7 @@ p{
 /* Home Page Banner Section Style */
 
 .banner-section-outer .banner-section{
-    padding: 50px 292px 138px;
+    padding: 0 292px 0;
     position: relative;
 }
 .banner-section-outer .banner-section .banner-section-content{

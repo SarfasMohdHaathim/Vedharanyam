@@ -7,10 +7,9 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="banner-section-content">
-                        <h1 data-aos="fade-up">Blog - Three Column Sidebar</h1>
-                        <p data-aos="fade-right">Duis aute irure dolor in reprehenderit in volurate velit cillum nulla pariatur nostrud exercitation.</p>
+                        <h1 data-aos="fade-up">Treatments</h1>
                         <div class="btn_wrapper">
-                            <span class="sub_home_span">Home </span><i class="fa-solid fa-angles-right" aria-hidden="true"></i><span class="sub_span"> Three Column Sidebar</span>
+                            <span class="sub_home_span">Home </span><i class="fa-solid fa-angles-right" aria-hidden="true"></i><span class="sub_span"> Treatment</span>
                         </div>
                     </div>
                 </div>
@@ -61,7 +60,7 @@
                                           <a href="#">{{ $treatments->name }} </a>
                                        </h2>
                                        <p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat.</p>
-                                       <a href="" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
+                                       <a href="{{ route('guest.treatmentdetails', ['name' => $treatments->name]) }}" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
                                        <!--post-item-description-->
                                     </div>
                                     <!--post-item-wrap-->

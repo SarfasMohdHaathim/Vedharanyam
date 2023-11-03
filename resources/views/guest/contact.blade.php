@@ -7,9 +7,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="banner-section-content">
                         <h1 data-aos="fade-up">Contact Us</h1>
-                        <p data-aos="fade-right">Suis aute irure dolor in reprehenderit in volurate velit cillum nulla pariatur nostrud exercitation.</p>
                         <div class="btn_wrapper">
-                            <span class="sub_home_span">Home </span><i class="fa-solid fa-angles-right" aria-hidden="true"></i><span class="sub_span"> Contact</span>
+                            <span class="sub_home_span">Home </span><i class="fa-solid fa-angles-right" aria-hidden="true"></i><span class="sub_span"> Contact Us</span>
                         </div>
                     </div>
                 </div>

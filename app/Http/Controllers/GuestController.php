@@ -16,7 +16,8 @@ class GuestController extends Controller
         return view('guest.blog', ['blog' => $blogs]);
     }
     public function index() {
-        return view('guest.index');
+        $blogs = Blog::orderBy('created_at', 'desc')->take(2)->get();
+        return view('guest.index', ['blog' => $blogs]);
     }
     public function blog_detail($blog)
     {
@@ -34,6 +35,12 @@ class GuestController extends Controller
         ->first();
 
         return view('guest.blog-inner', compact('blog', 'recentBlogs', 'previousBlog', 'nextBlog'));
+    }
+    public function treatment_detail($treatment)
+    {
+        $treatment = Treatment::where('name', $treatment)->firstOrFail(); 
+
+        return view('guest.treatment-inner', compact('treatment'));
     }
     public function contact_page() {
         return view('guest.contact');
@@ -55,7 +62,6 @@ class GuestController extends Controller
     }
     public function storecontact(Request $request)
     {
-        // Validate the form data
         $this->validate($request, [
             'firstname' => 'required',
             'lastname' => 'required',
@@ -64,7 +70,6 @@ class GuestController extends Controller
             'msg' => 'required',
         ]);
 
-        // Create a new contact record
         $contact = new Contact;
         $uuid = Uuid::uuid4()->toString();
         $contact->id = $uuid;
@@ -80,14 +85,10 @@ class GuestController extends Controller
 
     public function delete($id)
     {
-        // Find the contact record by ID and delete it
         $contact = Contact::find($id);
         if ($contact) {
             $contact->delete();
         }
-
-        // Redirect to a success page or return a response
         return redirect()->route('success');
     }
-
 }

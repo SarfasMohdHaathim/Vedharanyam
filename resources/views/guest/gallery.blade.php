@@ -16,16 +16,16 @@
                     </div>
                 </div>
                 <figure class="banner_left_top_shape left_shape mb-0">
-                    <img src="assets/images/banner_left_top_shape.png" alt="" class="img-fluid">
+                    <img src="{{ asset('vedharanyam/assets/images/banner_left_top_shape.png') }}" alt="" class="img-fluid">
                 </figure>
                 <figure class="banner_left_bottom_shape left_shape mb-0">
-                    <img src="assets/images/banner_left_bottom_shape.png" alt="" class="img-fluid">
+                    <img src="{{ asset('vedharanyam/assets/images/banner_left_bottom_shape.png') }}" alt="" class="img-fluid">
                 </figure>
                 <figure class="banner_right_top_shape right_shape mb-0">
-                    <img src="assets/images/banner_right_top_shape.png" alt="" class="img-fluid">
+                    <img src="{{ asset('vedharanyam/assets/images/banner_right_top_shape.png') }}" alt="" class="img-fluid">
                 </figure>
                 <figure class="banner_right_bottom_shape right_shape mb-0">
-                    <img src="assets/images/banner_right_bottom_shape.png" alt="" class="img-fluid">
+                    <img src="{{ asset('vedharanyam/assets/images/banner_right_bottom_shape.png') }}" alt="" class="img-fluid">
                 </figure>
             </div>
         </section>
@@ -44,21 +44,10 @@
             </div>
 
             <div class="grid row">
-                <div class="col-md-4 ">
-                    <div class="gallery-image">
-                 <img src="https://source.unsplash.com/400x400?mountain">
-                </div></div>
                 @foreach($galleries as $gallery)
                 <div class="col-md-4"><div class="gallery-image"> <img src="{{ asset('storage/' . $gallery->thumbnail) }}"></div></div>
                 
                 @endforeach
-                <div class="col-md-4"><div class="gallery-image"><img src="https://source.unsplash.com/400x400?valley"></div></div>
-                <div class="col-md-4"><div class="gallery-image"><img src="https://source.unsplash.com/400x400?beach"></div></div>
-                <div class="col-md-4"><div class="gallery-image"><img src="https://source.unsplash.com/400x400?ocean"></div></div>
-                <div class="col-md-4"><div class="gallery-image"><img src="https://source.unsplash.com/400x400?water"></div></div>
-                <div class="col-md-4"><div class="gallery-image"><img src="https://source.unsplash.com/400x400?trees"></div></div>
-                <div class="col-md-4"><div class="gallery-image"><img src="https://source.unsplash.com/400x400?lake"></div></div>
-                <div class="col-md-4"><div class="gallery-image"><img src="https://source.unsplash.com/400x400?cliff"></div></div>
             </div>
             <div id="lightbox">
                 <img id="lightbox-img">

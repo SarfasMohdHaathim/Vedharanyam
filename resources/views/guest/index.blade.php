@@ -445,30 +445,19 @@
                 </div>
             </div>
             <div class="row" data-aos="fade-up">
+                @foreach($blog as $blog)
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="blog_posts_image position-relative">
-                        <figure class="mb-0"><img src="{{ asset('vedharanyam/assets/images/blog_posts_1.png') }}" alt="" class="img-fluid"></figure>
+                        <figure class="mb-0"><img src="{{ asset('storage/' . $blog->thumbnail) }}" alt="" class="img-fluid"></figure>
                         <div class="blog_posts_image_content">
-                            <span>YOGA</span>
-                            <h4>Yoga Effects on Brain Health: A Systematic Review of the Current Literature</h4>
+                            <h4>{{$blog->name}}</h4>
                             <div class="icon_wrapper">
-                                <a href="single-post.html" class="text-decoration-none"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                                <a href="{{ route('guest.blog', ['name' => $blog->name]) }}" class="text-decoration-none"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="blog_posts_image position-relative">
-                        <figure class="mb-0"><img src="{{ asset('vedharanyam/assets/images/blog_posts_2.png') }}" alt="" class="img-fluid"></figure>
-                        <div class="blog_posts_image_content">
-                            <span>FITNESS</span>
-                            <h4>Maintaining a regular yoga practice can provide physical health</h4>
-                            <div class="icon_wrapper">
-                                <a href="single-post.html" class="text-decoration-none"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="btn_wrapper">
                 <a href="single-post.html" class="text-decoration-none view_blog">View All Blogs</a>

@@ -60,12 +60,11 @@ class TreatmentController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validate and update the treatment
         $treatment = Treatment::findOrFail($id);
 
         $validatedData = $request->validate([
             'name' => 'required|string',
-            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif|max:2000000048', // Validate image file if required
+            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif|max:2000000048', 
             'category' => 'required|string',
             'content' => 'required|string',
         ]);
@@ -90,8 +89,7 @@ class TreatmentController extends Controller
             $croppedImageInstance->encode('jpg', $imageQuality);
             $croppedImageInstance->save(storage_path("app/public/{$storagePath}/{$fileName}"));
             $treatment->thumbnail = 'uploads/treatment/'. $fileName;
-            
-        }else{
+        }else if(!empty($request->input('thumbnail'))){
             return redirect()->back()->withInput()->withErrors(['error' => 'Please select and crop image.']);
         }
         $treatment->save();

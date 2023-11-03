@@ -55,19 +55,19 @@
                         <h4>Quick Links</h4>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="{{ route('guest.index') }}">Home</a>
                             </li>
                             <li>
-                                <a href="about.html">About Us</a>
+                                <a href="{{ route('guest.about') }}">About Us</a>
                             </li>
                             <li>
-                                <a href="services.html">Services</a>
+                                <a href="{{ route('guest.treatment') }}">Treatments</a>
                             </li>
                             <li>
-                                <a href="team.html">Team</a>
+                                <a href="{{ route('guest.product') }}">Products</a>
                             </li>
                             <li>
-                                <a href="contact.html">Contact Us</a>
+                                <a href="{{ route('guest.contact') }}">Contact Us</a>
                             </li>
                         </ul>
                     </div>
