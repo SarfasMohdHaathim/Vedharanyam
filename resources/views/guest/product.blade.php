@@ -16,16 +16,16 @@
                     </div>
                 </div>
                 <figure class="banner_left_top_shape left_shape mb-0">
-                    <img src="assets/images/banner_left_top_shape.png" alt="" class="img-fluid">
+                    <img src="{{ asset('vedharanyam/assets/images/banner_left_top_shape.png') }}" alt="" class="img-fluid">
                 </figure>
                 <figure class="banner_left_bottom_shape left_shape mb-0">
-                    <img src="assets/images/banner_left_bottom_shape.png" alt="" class="img-fluid">
+                    <img src="{{ asset('vedharanyam/assets/images/banner_left_bottom_shape.png') }}" alt="" class="img-fluid">
                 </figure>
                 <figure class="banner_right_top_shape right_shape mb-0">
-                    <img src="assets/images/banner_right_top_shape.png" alt="" class="img-fluid">
+                    <img src="{{ asset('vedharanyam/assets/images/banner_right_top_shape.png') }}" alt="" class="img-fluid">
                 </figure>
                 <figure class="banner_right_bottom_shape right_shape mb-0">
-                    <img src="assets/images/banner_right_bottom_shape.png" alt="" class="img-fluid">
+                    <img src="{{ asset('vedharanyam/assets/images/banner_right_bottom_shape.png') }}" alt="" class="img-fluid">
                 </figure>
             </div>
         </section>
@@ -80,61 +80,6 @@
                         </div>
                     </div>
                     @endforeach
-
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 filterDiv product2">
-                        <div class="pricing_plans_box_content tab-pane" id="1a">
-                            <div class="pricing_plans_box_upper_portion">
-                                <figure class="pricing_plans_image mb-0">
-                                    <img src="assets/images/med2.png" alt="" class="img-fluid">
-                                </figure>
-                            </div>
-                            <div class="pricing_plans_box_lower_portion">
-                                <h3>Standard</h3>
-                                <ul class="list-unstyled">
-                                </ul>
-                                <div class="pricing_plans_span_wrapper">
-                                    <span class="price">$30</span>
-                                    <span class="per_month">/per month</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 filterDiv product3">
-                        <div class="pricing_plans_box_content tab-pane" id="2a">
-                            <div class="pricing_plans_box_upper_portion">
-                                <figure class="pricing_plans_image mb-0">
-                                    <img src="{{ asset('vedharanyam/assets/images/med3.png') }}" alt="" class="img-fluid">
-                                </figure>
-                            </div>
-                            <div class="pricing_plans_box_lower_portion">
-                                <h3>Standard</h3>
-                                <ul class="list-unstyled">
-                                </ul>
-                                <div class="pricing_plans_span_wrapper">
-                                    <span class="price">$30</span>
-                                    <span class="per_month">/per month</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 filterDiv product4">
-                        <div class="pricing_plans_box_content" id="3a">
-                            <div class="pricing_plans_box_upper_portion">
-                                <figure class="pricing_plans_image mb-0">
-                                    <img src="assets/images/med4.png" alt="" class="img-fluid">
-                                </figure>
-                            </div>
-                            <div class="pricing_plans_box_lower_portion">
-                                <h3>Standard</h3>
-                                <ul class="list-unstyled">
-                                </ul>
-                                <div class="pricing_plans_span_wrapper">
-                                    <span class="price">$30</span>
-                                    <span class="per_month">/per month</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

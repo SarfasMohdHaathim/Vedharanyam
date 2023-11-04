@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Gallery; 
 use App\Models\Blog; 
 use App\Models\Product; 
+use App\Models\Contact; 
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid; 
 use Intervention\Image\Facades\Image;
@@ -12,7 +13,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $contact = Contact::orderBy('created_at', 'desc')->get();
+
+        return view('home', ['contact' => $contact]);
     }
     public function product()
     {
@@ -136,7 +139,7 @@ class HomeController extends Controller
     }
     public function view()
     {
-        $blog = Blog::all();
+        $blog = Blog::orderBy('created_at', 'desc')->get();
         return view('blog', ['blog' => $blog]);
     }
 

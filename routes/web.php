@@ -24,6 +24,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/admin/login/', [AuthController::class, 'loginPost'])->name('login');
 });
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('admin/', [HomeController::class, 'index'])->name('admin.home');
     Route::get('admin/home/', [HomeController::class, 'index'])->name('home');
     Route::get('/admin/product/', [HomeController::class, 'product'])->name('adminproduct');
     Route::get('/admin/add-treatment/', [HomeController::class, 'addtreatment'])->name('adminaddtreatment');
@@ -45,5 +46,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin//blog/{id}/edit',[HomeController::class, 'edit'])->name('blog.edit');
     Route::put('/admin/blog/{id}',[HomeController::class, 'update'])->name('blog.update');
     Route::delete('/admin//blog/{id}',[HomeController::class, 'destroy'])->name('blog.destroy');
+    Route::delete('/admin//contact/{id}',[GuestController::class, 'contactdelete'])->name('contact.destroy');
     Route::delete('/admin/logout', [AuthController::class, 'logout'])->name('logout');
 });

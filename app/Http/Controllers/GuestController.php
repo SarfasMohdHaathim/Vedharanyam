@@ -83,12 +83,12 @@ class GuestController extends Controller
         return redirect()->route('guest.contact')->with('success', 'Contact saved successfully');
     }
 
-    public function delete($id)
+    public function contactdelete($id)
     {
         $contact = Contact::find($id);
         if ($contact) {
             $contact->delete();
         }
-        return redirect()->route('success');
+        return redirect()->route('home');
     }
 }

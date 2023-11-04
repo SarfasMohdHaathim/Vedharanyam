@@ -18,6 +18,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
     <link rel="manifest" href="assets/images/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="../ms-icon-144x144.html">

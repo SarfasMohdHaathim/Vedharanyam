@@ -18,10 +18,6 @@
                                     <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
 
                                     <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                                            <li class="breadcrumb-item active">Dashboard</li>
-                                        </ol>
                                     </div>
 
                                 </div>
@@ -123,38 +119,87 @@
                                             <table class="table align-middle table-nowrap mb-0">
                                                 <thead class="table-light">
                                                     <tr>
-                                                        <th class="align-middle">Order ID</th>
-                                                        <th class="align-middle">Billing Name</th>
+                                                        <th class="align-middle">Sl/No </th>
+                                                        <th class="align-middle">Full Name </th>
+                                                        <th class="align-middle">Phone</th>
+                                                        <th class="align-middle">Email</th>
+                                                        <th class="align-middle">Message</th>
                                                         <th class="align-middle">Date</th>
-                                                        <th class="align-middle">Total</th>
-                                                        <th class="align-middle">Payment Status</th>
-                                                        <th class="align-middle">Payment Method</th>
-                                                        <th class="align-middle">View Details</th>
+                                                        <th class="align-middle">Delete</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @php
+                                                        $counter = 1;
+                                                    @endphp
+                                                    
+                                                    @foreach($contact as $contact)
                                                     <tr>
-                                                        <td><a href="javascript: void(0);" class="text-body fw-bold">#SK2540</a> </td>
-                                                        <td>Neal Matthews</td>
+                                                        <td>{{ $counter }}</td>
+                                                        <td><a href="javascript: void(0);" class="text-body fw-bold">{{$contact->firstname}}&nbsp;{{$contact->lastname}}</a> </td>
+                                                        <td>{{$contact->phone}}</td>
                                                         <td>
-                                                            07 Oct, 2019
-                                                        </td>
-                                                        <td>
-                                                            $400
-                                                        </td>
-                                                        <td>
-                                                            <span class="badge badge-pill badge-soft-success font-size-11">Paid</span>
-                                                        </td>
-                                                        <td>
-                                                            <i class="fab fa-cc-mastercard me-1"></i> Mastercard
+                                                            {{$contact->emailaddress}}
                                                         </td>
                                                         <td>
                                                             <!-- Button trigger modal -->
-                                                            <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".transaction-detailModal">
-                                                                View Details
+                                                            <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".detailModal{{$contact->id}}">
+                                                                View Message
                                                             </button>
                                                         </td>
+                                                        <td>
+                                                            <span class="badge badge-pill badge-soft-success font-size-11">{{$contact->created_at}}</span>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#exampleModal{{$contact->id}}">
+                                                                <i class="bx bx-trash font-size-16 align-middle me-2"></i> Delete
+                                                            </button>  
+                                                        </td>
                                                     </tr>
+                                                     
+                                                    <div class="modal fade" id="exampleModal{{$contact->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Delete current selected item</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                    <form method="POST" action="{{ route('contact.destroy', $contact->id) }}">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                                </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @php
+                                                        $counter++;
+                                                    @endphp
+
+
+                                                    <!-- Transaction Modal -->
+                                                    <div class="modal fade detailModal{{$contact->id}}" tabindex="-1" role="dialog" aria-labelledby="transaction-detailModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="transaction-detailModalLabel">Message</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p class="mb-2">{{$contact->message}}</div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end modal -->
+
+                                                    @endforeach
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -169,63 +214,6 @@
                 </div>
                 <!-- End Page-content -->
 
-                <!-- Transaction Modal -->
-                <div class="modal fade transaction-detailModal" tabindex="-1" role="dialog" aria-labelledby="transaction-detailModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="transaction-detailModalLabel">Contact Message</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                     A erat nam at lectus urna duis convallis convallis tellus. Facilisi etiam dignissim diam quis enim. Egestas egestas fringilla phasellus faucibus scelerisque. Tortor id aliquet lectus proin nibh nisl condimentum id. Diam donec adipiscing tristique risus nec feugiat in. Et tortor consequat id porta nibh venenatis. Pretium fusce id velit ut tortor. Viverra suspendisse potenti nullam ac tortor vitae. Bibendum arcu vitae elementum curabitur vitae. Pretium lectus quam id leo. Lacinia at quis risus sed vulputate. Sapien nec sagittis aliquam malesuada bibendum arcu. Suscipit tellus mauris a diam maecenas sed enim. Nibh ipsum consequat nisl vel. Amet est placerat in egestas erat imperdiet sed euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. Ut consequat semper viverra nam libero justo laoreet.</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end modal -->
-
-                <!-- subscribeModal -->
-                <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header border-bottom-0">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="text-center mb-4">
-                                    <div class="avatar-md mx-auto mb-4">
-                                        <div class="avatar-title bg-light rounded-circle text-primary h1">
-                                            <i class="mdi mdi-email-open"></i>
-                                        </div>
-                                    </div>
-
-                                    <div class="row justify-content-center">
-                                        <div class="col-xl-10">
-                                            <h4 class="text-primary">Subscribe !</h4>
-                                            <p class="text-muted font-size-14 mb-4">Subscribe our newletter and get notification to stay update.</p>
-
-                                            <div class="input-group bg-light rounded">
-                                                <input type="email" class="form-control bg-transparent border-0" placeholder="Enter Email address" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                                
-                                                <button class="btn btn-primary" type="button" id="button-addon2">
-                                                    <i class="bx bxs-paper-plane"></i>
-                                                </button>
-                                                
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end modal -->
 
                 <footer class="footer">
                     <div class="container-fluid">

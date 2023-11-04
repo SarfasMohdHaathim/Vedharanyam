@@ -8,25 +8,24 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="banner-section-content">
-                        <h1 data-aos="fade-up">Blog - Single Post</h1>
-                        <p data-aos="fade-right">Duis aute irure dolor in reprehenderit in volurate velit cillum nulla pariatur nostrud exercitation.</p>
+                        <h1 data-aos="fade-up">Blog </h1>
                         <div class="btn_wrapper">
-                            <span class="sub_home_span">Home </span><i class="fa-solid fa-angles-right" aria-hidden="true"></i><span class="sub_span"> Single Post</span>
+                            <span class="sub_home_span">Home </span><i class="fa-solid fa-angles-right" aria-hidden="true"></i><span class="sub_span"> Blog</span>
                         </div>
                     </div>
                 </div>
             </div>
             <figure class="banner_left_top_shape left_shape mb-0">
-                <img src="assets/images/banner_left_top_shape.png" alt="" class="img-fluid">
+                <img src="{{ asset('vedharanyam/assets/images/banner_left_top_shape.png') }}" alt="" class="img-fluid">
             </figure>
             <figure class="banner_left_bottom_shape left_shape mb-0">
-                <img src="assets/images/banner_left_bottom_shape.png" alt="" class="img-fluid">
+                <img src="{{ asset('vedharanyam/assets/images/banner_left_bottom_shape.png') }}" alt="" class="img-fluid">
             </figure>
             <figure class="banner_right_top_shape right_shape mb-0">
-                <img src="assets/images/banner_right_top_shape.png" alt="" class="img-fluid">
+                <img src="{{ asset('vedharanyam/assets/images/banner_right_top_shape.png') }}" alt="" class="img-fluid">
             </figure>
             <figure class="banner_right_bottom_shape right_shape mb-0">
-                <img src="assets/images/banner_right_bottom_shape.png" alt="" class="img-fluid">
+                <img src="{{ asset('vedharanyam/assets/images/banner_right_bottom_shape.png') }}" alt="" class="img-fluid">
             </figure>
         </div>
     </section>
@@ -48,7 +47,7 @@
                             <div class="post-item-description">
                                 <h2 class="single-post-heading font_weight_600">{{ $blog->name }}</h2>
                                 <div class="post-meta">
-                                    <span class="post-meta-date color01"><i class="fa fa-calendar-o"></i>Updated on :<span id="date-filter">{{$blog->created_date}}</span></span>
+                                    <span class="post-meta-date color01"><i class="fa fa-calendar"></i>Updated on :<span id="date-filter">{{$blog->created_date}}</span></span>
                                     <div class="post-meta-share float-right">
                                         <!--post-meta-share-->
                                     </div>

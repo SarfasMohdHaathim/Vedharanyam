@@ -47,8 +47,8 @@
                              </div>
                              <div class="post-item-description">
                                 <span class="post-meta-date">
-                                <i class="fa fa-calendar-o"></i>Updated on :{{$blog->created_date}}</span>
-                                <h2><a href="#">{{$blog->name}}</a></h2>
+                                <i class="fa fa-calendar"></i>Updated on :{{$blog->created_date}}</span>
+                                <h2><a href="{{ route('guest.blog', ['name' => $blog->name]) }}">{{$blog->name}}</a></h2>
                                 <p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula ac sagittis ante posuere ac pharetra laoreet commodo dolor porta.</p>
                                 <a href="{{ route('guest.blog', ['name' => $blog->name]) }}" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
                                 <!--post-item-description-->
